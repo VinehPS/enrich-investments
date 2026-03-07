@@ -1,0 +1,114 @@
+{
+    "asset_ticker": "WEGE3",
+    "results": [
+        {
+            "id": "698916c15d3292776f867981",
+            "question": "ROE historicamente maior que 5%? (Considere anos anteriores).",
+            "answer": "Sim",
+            "justification": "O ROE da WEGE3 tem sido consistentemente alto e muito superior a 5%. Recentemente, o ROE foi de 36,61%, 34,37% e 36,52%. Em 2025, foi de 28,45%. Historicamente, a empresa possui um ROE acima de 10%."
+        },
+        {
+            "id": "698916c15d3292776f867982",
+            "question": "Tem um crescimento de receitas (Ou lucro) superior a 5% nos últimos 5 anos?",
+            "answer": "Sim",
+            "justification": "A WEGE3 apresentou um crescimento robusto nos últimos 5 anos. O CAGR das Receitas nos últimos 5 anos foi de 11,61% e 18,49%. O CAGR dos Lucros nos últimos 5 anos foi de 13,12% e 22,19%. O CAGR do lucro líquido (5 anos) foi de 23,36%, e o CAGR do EBIT e EBITDA (5 anos) foi de 23,66%. Todos esses valores são superiores a 5%."
+        },
+        {
+            "id": "698916c15d3292776f867983",
+            "question": "A empresa tem um histórico de pagamento de dividendos com recorrência?",
+            "answer": "Sim",
+            "justification": "A WEG S.A. é uma empresa que paga dividendos com recorrência. Possui um dividendo anual de 2,15 BRL por ação, pago trimestralmente. O histórico de pagamentos de dividendos da WEGE3 mostra pagamentos consistentes ao longo dos anos, e os pagamentos de dividendos aumentaram nos últimos 10 anos."
+        },
+        {
+            "id": "698916c15d3292776f867984",
+            "question": "A empresa investe amplamente em pesquisa e inovação? Setor Obsoleto (default é SEMPRE NÃO)",
+            "answer": "Sim",
+            "justification": "A WEG mantém investimentos consistentes em inovação, revisando continuamente seu portfólio. A empresa busca desenvolver produtos com práticas que minimizam impactos ambientais e promovem o desenvolvimento sustentável. A WEG está comprometida com a inovação como ferramenta para liderar a transição para uma economia de baixo carbono. O setor de motores elétricos não é obsoleto, mas está em constante evolução, impulsionado por tendências como eletrificação e energias renováveis."
+        },
+        {
+            "id": "698916c15d3292776f867985",
+            "question": "Tem mais de 30 anos de mercado? (Fundação)",
+            "answer": "Sim",
+            "justification": "A WEG foi fundada em 1961. Em 2026, a empresa terá 65 anos de existência, o que é significativamente mais do que 30 anos."
+        },
+        {
+            "id": "698916c15d3292776f867986",
+            "question": "É líder nacional ou mundial no setor em que atua? (Só considera se for LÍDER, primeira colocada)",
+            "answer": "Sim",
+            "justification": "A WEG (WEGE3) tornou-se a maior produtora mundial de motores elétricos de baixa tensão, superando a ABB. A empresa conquistou a primeira posição com 16% de market share, ultrapassando a suíça ABB, que ficou com 15,5%."
+        },
+        {
+            "id": "698916c15d3292776f867987",
+            "question": "O setor em que a empresa atua tem mais de 100 anos?",
+            "answer": "Sim",
+            "justification": "A WEG atua no setor de motores elétricos. A história dos motores elétricos remonta ao século XIX, com o primeiro motor elétrico considerado de 1834 e a fabricação em série de motores assíncronos iniciada em 1891. Portanto, o setor tem mais de 100 anos."
+        },
+        {
+            "id": "698916c15d3292776f867988",
+            "question": "A empresa é uma BLUE CHIP?",
+            "answer": "Sim",
+            "justification": "Embora não haja uma definição formal única de \"blue chip\", a WEG é uma multinacional de grande porte com uma capitalização de mercado de US$ 40,59 bilhões ou R$ 208,607 bilhões. Sua liderança de mercado, estabilidade e presença global a qualificam como uma blue chip no mercado brasileiro."
+        },
+        {
+            "id": "698916c15d3292776f867989",
+            "question": "A empresa tem uma boa gestão? Histórico de corrupção (default é SEMPRE NÃO)",
+            "answer": "Sim",
+            "justification": "A WEG está listada no Novo Mercado da B3, o mais alto nível de governança corporativa, que exige alta transparência e boas práticas de gestão. A empresa também evoluiu seu desempenho ESG e está listada no índice FTSE4Good, demonstrando compromisso com a sustentabilidade e governança. Não há informações sobre histórico de corrupção nos resultados da pesquisa."
+        },
+        {
+            "id": "698916c15d3292776f86798a",
+            "question": "É livre de controle ESTATAL ou concentração em cliente único?",
+            "answer": "Sim",
+            "justification": "A composição acionária da WEG não indica controle estatal, sendo majoritariamente pulverizada entre WPA Participações, família dos fundadores e demais acionistas. Além disso, a empresa possui uma receita diversificada, com 58% das vendas provenientes do mercado externo e 42% do mercado interno, o que sugere ausência de concentração em cliente único."
+        },
+        {
+            "id": "698916c15d3292776f86798b",
+            "question": "Div. Líquida/EBITDA é menor que 2 nos últimos 5 anos?",
+            "answer": "Sim",
+            "justification": "A WEGE3 apresenta uma Dívida Líquida/EBITDA negativa nos últimos 5 anos, indicando que a empresa possui mais caixa do que dívida. Os valores reportados incluem -0,30, -0,52, -0,60, -0,27, -0,31, -0,39, -0,19 e -0,27. Todos esses valores são significativamente menores que 2."
+        },
+        {
+            "id": "69aa2d0b551ca3158c7a19ce",
+            "question": "O valor patrimonial por ação é menor que o valor atual por ação? (quanto menor, melhor)",
+            "answer": "Sim",
+            "justification": "O Valor Patrimonial por Ação (VPA) da WEGE3 é de R$ 4,15. O valor atual da ação (cotação) varia, mas está em torno de R$ 46,71 a R$ 49,70. Como R$ 4,15 é menor que o valor atual da ação, a condição é atendida. Isso implica que o Preço/VPA é maior que 1, o que geralmente é visto como o mercado valorizando a empresa acima de seu valor contábil."
+        },
+        {
+            "id": "69aa2d34551ca3158c7a19ff",
+            "question": "O dividend yield anual é maior que 6%? Entre 5% e 20% é o ideal, se maior é perigoso",
+            "answer": "Não",
+            "justification": "O Dividend Yield anual da WEGE3 está abaixo de 6%. Os valores recentes encontrados são 4,41%, 4,60%, 4,53%, 4,89% (TTM em fev/2026), 5,10% e 4,93%."
+        },
+        {
+            "id": "69aa2d8d551ca3158c7a1a99",
+            "question": "Lucros consistentes nos últimos 10 anos?",
+            "answer": "Sim",
+            "justification": "A WEGE3 nunca reportou prejuízo em um ano fiscal e tem apresentado lucro nos últimos 20 trimestres (5 anos). O lucro líquido acumulado nos últimos doze meses foi superior a R$ 6,4 bilhões. O CAGR de lucros nos últimos 5 anos é superior a 13%, indicando consistência e crescimento."
+        },
+        {
+            "id": "69aa2da8551ca3158c7a1adb",
+            "question": "O TAG ALONG está próximo de 100%? Acima de 90% é bom e 100% é o ideal",
+            "answer": "Sim",
+            "justification": "A WEGE3 garante um Tag Along de 100% para as ações ordinárias. Isso é uma exigência para empresas listadas no Novo Mercado da B3, onde a WEG está."
+        },
+        {
+            "id": "69aa2fbe551ca3158c7a1f7f",
+            "question": "A empresa tem um histórico de pagamento de dividendos?",
+            "answer": "Sim",
+            "justification": "(Duplicata da pergunta 698916c15d3292776f867983) A WEG S.A. é uma empresa que paga dividendos com recorrência. Possui um dividendo anual de 2,15 BRL por ação, pago trimestralmente. O histórico de pagamentos de dividendos da WEGE3 mostra pagamentos consistentes ao longo dos anos, e os pagamentos de dividendos aumentaram nos últimos 10 anos."
+        },
+        {
+            "id": "69aa2fbe551ca3158c7a1f80",
+            "question": "A empresa investe amplamente em pesquisa e inovação? Setor Obsoleto = SEMPRE NÃO",
+            "answer": "Sim",
+            "justification": "(Duplicata da pergunta 698916c15d3292776f867984) A WEG mantém investimentos consistentes em inovação, revisando continuamente seu portfólio. A empresa busca desenvolver produtos com práticas que minimizam impactos ambientais e promovem o desenvolvimento sustentável. A WEG está comprometida com a inovação como ferramenta para liderar a transição para uma economia de baixo carbono. O setor de motores elétricos não é obsoleto, mas está em constante evolução, impulsionado por tendências como eletrificação e energias renováveis."
+        },
+        {
+            "id": "69aa2fbe551ca3158c7a1f85",
+            "question": "A empresa tem uma boa gestão? Histórico de corrupção = SEMPRE NÃO",
+            "answer": "Sim",
+            "justification": "(Duplicata da pergunta 698916c15d3292776f867989) A WEG está listada no Novo Mercado da B3, o mais alto nível de governança corporativa, que exige alta transparência e boas práticas de gestão. A empresa também evoluiu seu desempenho ESG e está listada no índice FTSE4Good, demonstrando compromisso com a sustentabilidade e governança. Não há informações sobre histórico de corrupção nos resultados da pesquisa."
+        }
+    ],
+    "summary": "A análise da WEGE3 revela um ativo de alta qualidade, com desempenho robusto em quase todos os critérios avaliados. A empresa demonstra um ROE historicamente elevado, crescimento consistente de receitas e lucros, um sólido histórico de pagamento de dividendos e investimentos significativos em pesquisa e inovação. Sua longa presença no mercado, liderança global no setor de motores elétricos, status de blue chip, excelente governança corporativa e baixo endividamento reforçam sua solidez. O único ponto que não atende a um critério específico é o Dividend Yield anual, que está abaixo de 6%, embora a empresa mantenha pagamentos recorrentes."
+}

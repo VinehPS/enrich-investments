@@ -1,0 +1,114 @@
+{
+    "asset_ticker": "BBAS3",
+    "results": [
+        {
+            "id": "698916c15d3292776f867981",
+            "question": "ROE historicamente maior que 5%? (Considere anos anteriores).",
+            "answer": "Sim",
+            "justification": "O Banco do Brasil (BBAS3) tem apresentado um ROE historicamente superior a 5%. Em 2022 e 2023, o ROE chegou a mais de 20%. Embora tenha havido uma queda para 8,4% no 2T25 e 8,67% em março de 2026, e analistas prevejam um ROE na faixa dos 15% para 2026, esses valores ainda são significativamente maiores que 5%."
+        },
+        {
+            "id": "698916c15d3292776f867982",
+            "question": "Tem um crescimento de receitas (Ou lucro) superior a 5% nos últimos 5 anos?",
+            "answer": "Sim",
+            "justification": "O Banco do Brasil (BBAS3) apresentou um CAGR (Taxa de Crescimento Anual Composta) de Receitas de 26,49% nos últimos 5 anos, de acordo com o Status Invest. Outras fontes indicam CAGR de Receita de 20,46%, 19,65% e 25,38%. Todos esses valores são superiores a 5%. No entanto, o CAGR de Lucros nos últimos 5 anos é de 4,77%, -3,18%, -7,02% ou 3,66%, o que não atende ao critério de crescimento superior a 5%. Como a pergunta usa \"Ou lucro\", e a receita cresceu acima de 5%, o critério é atendido."
+        },
+        {
+            "id": "698916c15d3292776f867983",
+            "question": "A empresa tem um histórico de pagamento de dividendos com recorrência?",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil (BBAS3) possui um histórico consistente de pagamento de dividendos e juros sobre capital próprio (JCP). A empresa tem mantido uma trajetória de pagamentos nos últimos dez anos, alternando ciclos de maior e menor rentabilidade. Em 2025, por exemplo, os pagamentos trimestrais variaram de R$ 0,09 a R$ 0,33 por ação."
+        },
+        {
+            "id": "698916c15d3292776f867984",
+            "question": "A empresa investe amplamente em pesquisa e inovação? Setor Obsoleto (default é SEMPRE NÃO)",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil investe amplamente em tecnologia e inovação. A presidente do banco, Tarciana Medeiros, afirmou em junho de 2025 que o BB já conta com 700 modelos de inteligência artificial em operação e planeja expandir exponencialmente com IA generativa, reforçando que \"não há sobrevivência fora da tecnologia\". O banco também tem um histórico de mais de 50 anos de investimento em tecnologia, desenvolvendo soluções 100% brasileiras desde os anos 70, e possui um Laboratório de Experimentação e Novas Tecnologias, além de investir em startups. O setor bancário não é considerado obsoleto, mas sim em constante transformação digital."
+        },
+        {
+            "id": "698916c15d3292776f867985",
+            "question": "Tem mais de 30 anos de mercado? (Fundação)",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil foi fundado em 12 de outubro de 1808, o que o torna a instituição financeira mais antiga do Brasil e um dos bancos mais antigos em operação no continente americano. Portanto, possui muito mais de 30 anos de mercado."
+        },
+        {
+            "id": "698916c15d3292776f867986",
+            "question": "É líder nacional ou mundial no setor em que atua? (Só considera se for LÍDER, primeira colocada)",
+            "answer": "Não",
+            "justification": "O Banco do Brasil não é o líder nacional em ativos totais, sendo superado pelo Itaú Unibanco. Em 2025, o Itaú Unibanco liderou com mais de R$ 3 trilhões em ativos, enquanto o Banco do Brasil ocupou a segunda posição. Embora o Banco do Brasil ocupe posições de destaque em algumas áreas, como o maior administrador de recursos de terceiros da América Latina e forte presença no agronegócio, ele não é o líder geral do setor bancário no Brasil."
+        },
+        {
+            "id": "698916c15d3292776f867987",
+            "question": "O setor em que a empresa atua tem mais de 100 anos?",
+            "answer": "Sim",
+            "justification": "Sim, o setor bancário no Brasil tem mais de 100 anos. O próprio Banco do Brasil, fundado em 1808, é a instituição financeira mais antiga do país. A história bancária no Brasil remonta ao início do século XIX, com a criação do Banco do Brasil por Dom João VI."
+        },
+        {
+            "id": "698916c15d3292776f867988",
+            "question": "A empresa é uma BLUE CHIP?",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil (BBAS3) é amplamente considerado uma blue chip na bolsa brasileira. As blue chips são ações de empresas de grande porte, com alta liquidez, estabilidade, boa reputação e forte presença em índices de referência como o Ibovespa. O BBAS3 se encaixa nessas características, sendo uma das ações com maior peso no Ibovespa e frequentemente citada como exemplo de blue chip ao lado de empresas como Vale e Petrobras."
+        },
+        {
+            "id": "698916c15d3292776f867989",
+            "question": "A empresa tem uma boa gestão? Histórico de corrupção (default é SEMPRE NÃO)",
+            "answer": "Não",
+            "justification": "A empresa adere a boas práticas de governança corporativa, seguindo os princípios de Transparência, Equidade, Prestação de Contas e Responsabilidade Corporativa, e está no Novo Mercado da B3 desde 2006. No entanto, houve notícias recentes (janeiro de 2025) sobre uma ação judicial monumental que expõe práticas ilegais de venda casada no crédito rural, liderada pela ABDAGRO, que alega desvio de bilhões de reais e busca R$ 841 bilhões em indenizações. Além disso, em 2012, o Banco do Brasil abriu sindicância para apurar a transferência de R$ 953 mil para a conta de um ex-vice-presidente, e em 2019, uma operação da Polícia Civil desarticulou um esquema fraudulento que causou um rombo de R$ 26 milhões. Em 2025, houve uma investigação da Polícia Federal sobre uma falsa falência do Banco do Brasil, com mensagens circulando para gerar caos no sistema financeiro. A existência desses eventos, especialmente a ação judicial de grande porte e as investigações de fraude, impede que a resposta seja \"Sim\" para uma \"boa gestão\" considerando o critério de \"Histórico de corrupção (default é SEMPRE NÃO)\"."
+        },
+        {
+            "id": "698916c15d3292776f86798a",
+            "question": "É livre de controle ESTATAL ou concentração em cliente único?",
+            "answer": "Não",
+            "justification": "Não, o Banco do Brasil não é livre de controle estatal. É uma instituição financeira brasileira, sendo um dos cinco bancos estatais do governo brasileiro, que detém participação majoritária de 50% das ações. A União Federal é a proprietária majoritária."
+        },
+        {
+            "id": "698916c15d3292776f86798b",
+            "question": "Div. Líquida/EBITDA é menor que 2 nos últimos 5 anos?",
+            "answer": "Não",
+            "justification": "As informações de Dívida Líquida/EBITDA para o Banco do Brasil (BBAS3) não são consistentemente apresentadas nas fontes pesquisadas para os últimos 5 anos de forma a permitir a verificação do critério. Algumas fontes, como o Status Invest, mostram o EBITDA como \"-%\", o que impossibilita o cálculo da relação. Sem dados claros e consistentes para o EBITDA nos últimos 5 anos, não é possível afirmar que a Dívida Líquida/EBITDA foi menor que 2."
+        },
+        {
+            "id": "69aa2d0b551ca3158c7a19ce",
+            "question": "O valor patrimonial por ação é menor que o valor atual por ação? (quanto menor, melhor)",
+            "answer": "Não",
+            "justification": "O Valor Patrimonial por Ação (VPA) do BBAS3 é de R$ 33,78 (Status Invest) ou R$ 33,02 (Investidor10). A cotação atual da ação (valor atual por ação) está em torno de R$ 25,00 a R$ 25,94 (Investing.com, Status Invest, Genial Investimentos). Como o VPA (R$ 33,78 ou R$ 33,02) é *maior* que o valor atual por ação (R$ 25,00 - R$ 25,94), a resposta é \"Não\". O P/VP (Preço/Valor Patrimonial) é de 0,73 a 0,78, o que significa que a ação está sendo negociada abaixo do seu valor patrimonial. A pergunta \"quanto menor, melhor\" para o VPA em relação ao preço é um pouco ambígua, mas se interpretarmos como P/VP < 1 (o que significa que o preço é menor que o VPA), então a condição de \"VPA é menor que o valor atual por ação\" não é atendida."
+        },
+        {
+            "id": "69aa2d34551ca3158c7a19ff",
+            "question": "O dividend yield anual é maior que 6%? Entre 5% e 20% é o ideal, se maior é perigoso",
+            "answer": "Não",
+            "justification": "O dividend yield anual do BBAS3 varia entre as fontes, mas a maioria indica valores abaixo de 6%. O MLQ.ai reporta um DY de 5,34%. O Stock Analysis indica 3,37%. O Status Invest mostra 5,94%. A XP Investimentos projeta um DY de 4,8% para 2025. O Investidor10 mostra 5,83%. Embora alguns valores estejam próximos de 6%, nenhum dos dados mais recentes e consolidados atinge consistentemente um DY *maior* que 6%."
+        },
+        {
+            "id": "69aa2d8d551ca3158c7a1a99",
+            "question": "Lucros consistentes nos últimos 10 anos?",
+            "answer": "Sim",
+            "justification": "O Banco do Brasil tem apresentado lucros líquidos anuais consistentes nos últimos anos. De acordo com os balanços, o lucro líquido foi de R$ 19,71 bilhões em 2021, R$ 31,11 bilhões em 2022, R$ 33,82 bilhões em 2023, R$ 26,36 bilhões em 2024 e R$ 13,7 bilhões em 2025. Embora haja variações e uma queda em 2025, a empresa tem se mantido lucrativa. A consistência se refere à ausência de prejuízos, o que tem sido o caso."
+        },
+        {
+            "id": "69aa2da8551ca3158c7a1adb",
+            "question": "O TAG ALONG está próximo de 100%? Acima de 90% é bom e 100% é o ideal",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil (BBAS3) garante um tag along de 100% para os detentores de ações ordinárias. Isso significa que, em caso de venda do controle acionário da empresa, os acionistas minoritários teriam o direito de vender suas ações pelo mesmo preço por ação pago ao acionista controlador."
+        },
+        {
+            "id": "69aa2fbe551ca3158c7a1f7f",
+            "question": "A empresa tem um histórico de pagamento de dividendos?",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil (BBAS3) tem um histórico de pagamento de dividendos e Juros Sobre Capital Próprio (JCP) com recorrência. Diversas fontes confirmam a distribuição regular de proventos, com pagamentos trimestrais e um histórico que se estende por anos."
+        },
+        {
+            "id": "69aa2fbe551ca3158c7a1f80",
+            "question": "A empresa investe amplamente em pesquisa e inovação? Setor Obsoleto = SEMPRE NÃO",
+            "answer": "Sim",
+            "justification": "Sim, o Banco do Brasil investe amplamente em tecnologia e inovação. A presidente do banco, Tarciana Medeiros, destacou em junho de 2025 que o BB utiliza 700 modelos de inteligência artificial e planeja expansão com IA generativa, afirmando que \"não há sobrevivência fora da tecnologia\". O banco tem um histórico de mais de 50 anos de investimento em tecnologia, desenvolvendo soluções 100% brasileiras desde os anos 70, e mantém um Laboratório de Experimentação e Novas Tecnologias, além de investir em startups. O setor bancário não é considerado obsoleto, mas sim em constante evolução tecnológica."
+        },
+        {
+            "id": "69aa2fbe551ca3158c7a1f85",
+            "question": "A empresa tem uma boa gestão? Histórico de corrupção = SEMPRE NÃO",
+            "answer": "Não",
+            "justification": "A empresa adere a boas práticas de governança corporativa, seguindo os princípios de Transparência, Equidade, Prestação de Contas e Responsabilidade Corporativa, e está no Novo Mercado da B3 desde 2006. No entanto, há um histórico de notícias e investigações que levantam preocupações sobre corrupção e gestão. Em janeiro de 2025, uma ação judicial de grande porte foi movida contra o Banco do Brasil por práticas ilegais de venda casada no crédito rural, buscando R$ 841 bilhões em indenizações. Houve também investigações sobre fraudes internas, como a de R$ 26 milhões em 2019 e a sindicância de R$ 953 mil em 2012. Em setembro de 2025, a Polícia Federal investigou uma falsa falência do Banco do Brasil, com mensagens circulando para gerar caos no sistema financeiro. A existência desses eventos, especialmente a ação judicial de grande porte e as investigações de fraude, impede que a resposta seja \"Sim\" para uma \"boa gestão\" considerando o critério de \"Histórico de corrupção (default é SEMPRE NÃO)\"."
+        }
+    ],
+    "summary": "O Banco do Brasil (BBAS3) demonstra solidez em diversos aspectos, como um ROE historicamente superior a 5%, crescimento robusto de receitas nos últimos 5 anos, e um histórico consistente de pagamento de dividendos. A empresa é uma blue chip com mais de 200 anos de mercado, atua em um setor perene e investe amplamente em tecnologia e inovação, garantindo um tag along de 100%. Contudo, o ativo apresenta pontos de atenção significativos: não é líder nacional em seu setor, está sob controle estatal, e possui um histórico de notícias e investigações relacionadas a corrupção e má gestão, o que impacta negativamente a avaliação de sua governança. Além disso, seu dividend yield anual está abaixo de 6%, e a relação Dívida Líquida/EBITDA não pôde ser confirmada como menor que 2 devido à falta de dados consistentes. O valor patrimonial por ação é maior que o valor atual por ação, indicando que a ação negocia abaixo do seu valor patrimonial."
+}

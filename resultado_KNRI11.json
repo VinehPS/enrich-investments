@@ -1,0 +1,60 @@
+{
+    "asset_ticker": "KNRI11",
+    "results": [
+        {
+            "id": "69aa3414551ca3158c7a2765",
+            "question": "Os imóveis desse Fundo Imobiliário estão localizados em regiões nobres?",
+            "answer": "Sim",
+            "justification": "A estratégia do fundo prioriza ativos de alto padrão corporativo localizados em eixos econômicos estratégicos, com forte concentração em regiões nobres de São Paulo e polos logísticos consolidados. Exemplos incluem propriedades na Avenida Presidente Juscelino Kubitschek, Itaim Bibi, Pinheiros (SP), Lagoa Corporate (RJ), Botafogo Trade Center (RJ), e centros de distribuição em Jundiaí (SP), Pouso Alegre (MG) e Cabreúva (SP)."
+        },
+        {
+            "id": "69aa3414551ca3158c7a2766",
+            "question": "As propriedades são novas e não consomem manutenção excessiva?",
+            "answer": "Sim",
+            "justification": "A estratégia do fundo foca em \"prédios corporativos e galpões logísticos de elevada qualidade técnica\" e \"padrão corporativo elevado\", o que sugere um portfólio que visa minimizar a manutenção excessiva. O fundo também possui uma estratégia de investir constantemente em seus ativos imobiliários existentes para mantê-los atualizados e competitivos."
+        },
+        {
+            "id": "69aa3414551ca3158c7a2767",
+            "question": "O fundo imobiliário está negociado abaixo do P/VP 1? (Acima de 1,5, eu descarto o investimento em qualquer hipótese)",
+            "answer": "Não",
+            "justification": "O P/VP (Preço/Valor Patrimonial) atual do KNRI11 é de 1.01 ou 1.03. Como esses valores são superiores a 1, o fundo não está sendo negociado abaixo do P/VP 1."
+        },
+        {
+            "id": "69aa3414551ca3158c7a2768",
+            "question": "Distribui dividendos a mais de 4 anos consistentemente?",
+            "answer": "Sim",
+            "justification": "O histórico de dividendos do KNRI11 mostra distribuições consistentes por mais de 4 anos, com registros de pagamentos em 2020, 2021, 2022, 2023, 2024, 2025 e 2026."
+        },
+        {
+            "id": "69aa3414551ca3158c7a2769",
+            "question": "Não é dependende de um único inquilino ou imóvel?",
+            "answer": "Sim",
+            "justification": "O fundo possui um portfólio diversificado com 20 a 21 propriedades, incluindo edifícios comerciais e centros logísticos. Além disso, conta com uma base pulverizada de mais de 150 inquilinos com robusto perfil de crédito e diversificação de receitas por estado e tipologia."
+        },
+        {
+            "id": "69aa3414551ca3158c7a276a",
+            "question": "O Yield está dentro ou acima da média para fundos imobiliários do mesmo tipo?",
+            "answer": "Não",
+            "justification": "O Dividend Yield (DY) do KNRI11 nos últimos 12 meses varia entre 7.29% e 7.93%. A mediana do DY para FIIs de Logística no IFIX é de 9.75%, e a média de uma carteira recomendada de FIIs em março de 2026 é de 9.8%. Uma fonte afirma explicitamente que o DY do KNRI11 está \"abaixo da média\"."
+        },
+        {
+            "id": "69aa3468551ca3158c7a2911",
+            "question": "A taxa de administração é baixa? No máximo 2%, acima não considere.",
+            "answer": "Sim",
+            "justification": "A taxa de administração do KNRI11 é de 1.11% ao ano, sem taxa de performance. Outras fontes indicam 1.25% ao ano. Ambos os valores estão abaixo do limite de 2%."
+        },
+        {
+            "id": "69aa3488551ca3158c7a29e7",
+            "question": "A taxa de alavancagem é inferior a 15%? Acima de 15 não considere.",
+            "answer": "Sim",
+            "justification": "A taxa de alavancagem do KNRI11 é de 6.0%, sendo 23% menor que a média dos FIIs híbridos. Outra fonte indica \"Dívida/Patrimônio Líquido 0%\". Ambos os dados mostram que a alavancagem é significativamente inferior a 15%."
+        },
+        {
+            "id": "69aa34f3551ca3158c7a2aef",
+            "question": "A taxa de vacância é inferior a 10%? Acima de 10% não considerar.",
+            "answer": "Sim",
+            "justification": "A taxa de vacância física do KNRI11 era de 4.20% no final de fevereiro de 2026. Outra fonte reporta vacância física de 4.3% e vacância financeira de 5.58%. Todos esses valores são inferiores a 10%."
+        }
+    ],
+    "summary": "O KNRI11 demonstra ser um fundo imobiliário de alta qualidade, com imóveis bem localizados em regiões nobres e de elevado padrão técnico, o que minimiza a necessidade de manutenção excessiva. O fundo possui um histórico consistente de distribuição de dividendos por mais de 4 anos e um portfólio diversificado com múltiplos inquilinos e propriedades, reduzindo a dependência. Além disso, apresenta taxas de administração baixas (1.11% a 1.25% a.a.), baixa alavancagem (6.0%) e uma taxa de vacância controlada (4.20% a 5.58%), todos indicadores positivos. Contudo, o fundo está sendo negociado acima do P/VP 1 (1.01 ou 1.03) e seu Dividend Yield (7.29% a 7.93%) está abaixo da média para FIIs do mesmo tipo, o que pode indicar uma avaliação menos atrativa no momento em termos de preço e retorno de dividendos em comparação com seus pares."
+}

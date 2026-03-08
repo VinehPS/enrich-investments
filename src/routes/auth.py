@@ -62,7 +62,8 @@ async def login_google_oauth2(request: GoogleAuthRequest, db=Depends(get_databas
             "email": email, 
             "name": name, 
             "picture": picture,
-            "has_gemini_key": bool(user_data.get("encrypted_gemini_key"))
+            "has_gemini_key": bool(user_data.get("encrypted_gemini_key")),
+            "nickname": user_data.get("nickname")
         }
     }
 
@@ -77,7 +78,9 @@ async def read_users_me(current_user: User = Depends(get_current_user)):
     return {
         "email": current_user["email"],
         "name": current_user["name"],
-        "has_gemini_key": bool(current_user.get("encrypted_gemini_key"))
+        "picture": current_user.get("picture"),
+        "has_gemini_key": bool(current_user.get("encrypted_gemini_key")),
+        "nickname": current_user.get("nickname")
     }
 
 @router.delete("/me")
@@ -105,3 +108,11 @@ async def save_gemini_key(request: GeminiKeyRequest, current_user: User = Depend
     )
     
     return {"message": "Gemini Key securely encrypted and saved"}
+
+@router.delete("/api-key")
+async def delete_api_key(current_user: User = Depends(get_current_user), db=Depends(get_database)):
+    await db["users"].update_one(
+        {"_id": current_user["_id"]},
+        {"$unset": {"encrypted_gemini_key": ""}}
+    )
+    return {"message": "API Key removed successfully"}

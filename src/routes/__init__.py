@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-from . import auth, tickers, questions, analyze, user, history
+from . import analyze, auth, history, questions, tickers, user
 
 router.include_router(auth.router, prefix="/auth", tags=["Auth & User Management"])
 router.include_router(user.router, prefix="/user", tags=["User Profile"])

@@ -3,15 +3,6 @@
   "compilerOptions": {
     "strict": true,
     "noEmit": true,
-    "types": ["vitest/globals"]
-  },
-  "include": [
-    "**/*.ts",
-    "**/*.vue"
-  ],
-  "exclude": [
-    "node_modules",
-    ".output",
-    "dist"
-  ]
+    "types": ["vitest/globals", "node", "nuxt"]
+  }
 }

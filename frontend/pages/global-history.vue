@@ -18,31 +18,31 @@
           />
           <div class="flex gap-2">
             <button
-              @click="filterType = ''; loadGlobalHistory()"
               :class="filterType === '' ? 'bg-brand/20 text-brand-light border-brand/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors"
+              @click="filterType = ''; loadGlobalHistory()"
             >
               Todos
             </button>
             <button
-              @click="filterType = 'stocks'; loadGlobalHistory()"
               :class="filterType === 'stocks' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors"
+              @click="filterType = 'stocks'; loadGlobalHistory()"
             >
               Ações
             </button>
             <button
-              @click="filterType = 'real_estate_funds'; loadGlobalHistory()"
               :class="filterType === 'real_estate_funds' ? 'bg-purple-500/20 text-purple-400 border-purple-500/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors"
+              @click="filterType = 'real_estate_funds'; loadGlobalHistory()"
             >
               Fundos
             </button>
           </div>
           <select
             v-model="sortOrder"
-            @change="loadGlobalHistory"
             class="bg-white/5 border border-brand-border rounded-xl px-4 py-2 text-white focus:border-brand outline-none text-sm appearance-none"
+            @change="loadGlobalHistory"
           >
             <option value="newest">Mais recentes</option>
             <option value="oldest">Mais antigos</option>

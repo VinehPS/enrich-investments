@@ -24,8 +24,8 @@
             <option value="real_estate_funds">Fundos</option>
           </select>
           <button
-            @click="loadHistory"
             class="bg-brand/20 text-brand-light font-medium px-4 py-2 rounded-xl hover:bg-brand/30 transition-colors text-sm"
+            @click="loadHistory"
           >
             Filtrar
           </button>

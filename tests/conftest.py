@@ -1,7 +1,10 @@
+from collections.abc import AsyncGenerator
+
 import pytest
 from httpx import AsyncClient
-from typing import AsyncGenerator
+
 from src.api.main import app
+
 
 @pytest.fixture
 async def async_client() -> AsyncGenerator[AsyncClient, None]:

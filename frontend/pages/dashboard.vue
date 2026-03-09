@@ -13,7 +13,7 @@
           <!-- Ticker Search -->
           <div class="mb-6">
             <label class="block text-sm font-medium text-gray-300 mb-2">Código do Ativo</label>
-            <div class="relative" ref="dropdownRef">
+            <div ref="dropdownRef" class="relative">
               <input
                 v-model="searchQuery"
                 type="text"
@@ -31,8 +31,8 @@
                   <button
                     v-for="t in filteredTickers"
                     :key="t.ticker"
-                    @click="selectTicker(t)"
                     class="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors flex items-center justify-between border-b border-brand-border last:border-0"
+                    @click="selectTicker(t)"
                   >
                     <div>
                       <span class="text-white font-semibold">{{ t.ticker }}</span>
@@ -53,7 +53,7 @@
             <div v-if="selectedTicker" class="mt-2 flex items-center gap-2">
               <span class="text-brand-light font-semibold">{{ selectedTicker.ticker }}</span>
               <span class="text-gray-500 text-sm">- {{ selectedTicker.name }}</span>
-              <button @click="clearTicker" class="text-gray-500 hover:text-red-400 ml-2 transition-colors">
+              <button class="text-gray-500 hover:text-red-400 ml-2 transition-colors" @click="clearTicker">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
             </div>
@@ -65,8 +65,8 @@
             <div class="flex gap-4 mb-4">
               <label class="flex items-center gap-2 cursor-pointer group">
                 <input
-                  type="radio"
                   v-model="questionMode"
+                  type="radio"
                   value="default"
                   class="w-4 h-4 text-brand focus:ring-brand accent-yellow-500"
                 />
@@ -74,8 +74,8 @@
               </label>
               <label class="flex items-center gap-2 cursor-pointer group">
                 <input
-                  type="radio"
                   v-model="questionMode"
+                  type="radio"
                   value="custom"
                   class="w-4 h-4 text-brand focus:ring-brand accent-yellow-500"
                 />
@@ -110,7 +110,7 @@
               </div>
               <div v-else class="bg-white/5 rounded-xl p-4 space-y-2">
                 <div v-for="q in questionsStore.userQuestions" :key="q.id" class="flex items-center gap-3">
-                  <input type="checkbox" :value="q.id" v-model="selectedCustomQuestions" class="w-4 h-4 accent-yellow-500 rounded" />
+                  <input v-model="selectedCustomQuestions" type="checkbox" :value="q.id" class="w-4 h-4 accent-yellow-500 rounded" />
                   <span class="text-sm text-gray-300">{{ q.text }}</span>
                   <span class="text-xs text-gray-600">({{ q.type === 'stocks' ? 'Ação' : 'FII' }})</span>
                 </div>
@@ -120,9 +120,9 @@
 
           <!-- Process Button -->
           <button
-            @click="startProcessing"
             :disabled="!canProcess || processing"
             class="w-full bg-gradient-to-r from-brand to-brand-dark text-brand-bg font-bold py-4 rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-brand/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg"
+            @click="startProcessing"
           >
             <template v-if="processing">
               <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>

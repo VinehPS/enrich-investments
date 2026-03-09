@@ -1,27 +1,31 @@
 from pydantic_settings import BaseSettings
-from typing import List
+
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Enrich Investments Backend"
     API_V1_STR: str = "/api/v1"
-    
+
     # CORS
-    BACKEND_CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:8080", "http://localhost:5173"]
+    BACKEND_CORS_ORIGINS: list[str] = ["http://localhost:3000", "http://localhost:8080", "http://localhost:5173"]
 
     # Database
     MONGODB_URL: str
     DATABASE_NAME: str = "enrich_investments"
 
     # Security
-    SECRET_KEY: str # Used for Fernet encryption of Gemini Keys
+    SECRET_KEY: str  # Used for Fernet encryption of Gemini Keys
     ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7 # 7 days
-    
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
+
     # Google OAuth
     GOOGLE_CLIENT_ID: str
     GOOGLE_CLIENT_SECRET: str
 
+    # Gemini (Optional for backend directly, but can be in .env)
+    GEMINI_API_KEY: str | None = None
+
     class Config:
         env_file = ".env"
+
 
 settings = Settings()

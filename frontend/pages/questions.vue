@@ -28,20 +28,20 @@
             <div class="flex items-center justify-between">
               <div class="flex gap-3">
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="radio" v-model="newQuestionType" value="stocks" class="accent-yellow-500" />
+                  <input v-model="newQuestionType" type="radio" value="stocks" class="accent-yellow-500" />
                   <span class="text-sm text-gray-300">Ações</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="radio" v-model="newQuestionType" value="real_estate_funds" class="accent-yellow-500" />
+                  <input v-model="newQuestionType" type="radio" value="real_estate_funds" class="accent-yellow-500" />
                   <span class="text-sm text-gray-300">FIIs</span>
                 </label>
               </div>
               <div class="flex items-center gap-3">
                 <span class="text-xs text-gray-500">{{ newQuestionText.length }}/500</span>
                 <button
-                  @click="addQuestion"
                   :disabled="!newQuestionText.trim() || !newQuestionType || addingQuestion"
                   class="bg-gradient-to-r from-brand to-brand-dark text-brand-bg font-bold px-6 py-2.5 rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  @click="addQuestion"
                 >
                   {{ addingQuestion ? 'Adicionando...' : 'Adicionar' }}
                 </button>
@@ -55,23 +55,23 @@
           <!-- Filter Tabs -->
           <div class="flex gap-2 mb-4">
             <button
-              @click="filterType = ''"
               :class="filterType === '' ? 'bg-brand/20 text-brand-light border-brand/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-1.5 rounded-lg text-sm font-medium transition-colors"
+              @click="filterType = ''"
             >
               Todas
             </button>
             <button
-              @click="filterType = 'stocks'"
               :class="filterType === 'stocks' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-1.5 rounded-lg text-sm font-medium transition-colors"
+              @click="filterType = 'stocks'"
             >
               Ações
             </button>
             <button
-              @click="filterType = 'real_estate_funds'"
               :class="filterType === 'real_estate_funds' ? 'bg-purple-500/20 text-purple-400 border-purple-500/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-1.5 rounded-lg text-sm font-medium transition-colors"
+              @click="filterType = 'real_estate_funds'"
             >
               Fundos
             </button>
@@ -84,8 +84,8 @@
           </div>
 
           <div
-            v-else
             v-for="q in filteredQuestions"
+            v-else
             :key="q.id"
             class="bg-brand-surface/50 border border-brand-border rounded-xl p-4 group hover:border-brand/30 transition-colors"
           >
@@ -103,10 +103,10 @@
                 </div>
               </div>
               <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button @click="startEdit(q)" class="text-gray-500 hover:text-brand-light p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <button class="text-gray-500 hover:text-brand-light p-1.5 rounded-lg hover:bg-white/5 transition-colors" @click="startEdit(q)">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                 </button>
-                <button @click="deleteQuestion(q.id)" class="text-gray-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <button class="text-gray-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-white/5 transition-colors" @click="deleteQuestion(q.id)">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                 </button>
               </div>
@@ -121,11 +121,11 @@
                 class="w-full bg-white/5 border border-brand rounded-xl px-4 py-3 text-white focus:ring-1 focus:ring-brand outline-none resize-none"
               ></textarea>
               <div class="flex justify-end gap-2">
-                <button @click="cancelEdit" class="text-sm text-gray-400 px-4 py-1.5 rounded-lg hover:bg-white/5 transition-colors">Cancelar</button>
+                <button class="text-sm text-gray-400 px-4 py-1.5 rounded-lg hover:bg-white/5 transition-colors" @click="cancelEdit">Cancelar</button>
                 <button
-                  @click="saveEdit"
                   :disabled="!editText.trim()"
                   class="text-sm bg-brand text-brand-bg font-semibold px-4 py-1.5 rounded-lg hover:brightness-110 transition-all disabled:opacity-50"
+                  @click="saveEdit"
                 >
                   Salvar
                 </button>

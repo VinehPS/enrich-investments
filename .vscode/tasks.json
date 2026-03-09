@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Lint & Format Python (Ruff)",
+      "type": "shell",
+      "command": "ruff check --fix . ; ruff format .",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Lint & Format Vue/TS (ESLint)",
+      "type": "shell",
+      "command": "cd frontend ; npm run lint:fix",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Format All (Python & Vue)",
+      "type": "shell",
+      "command": "ruff check --fix . ; ruff format . ; cd frontend ; npm run lint:fix",
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ]
+}

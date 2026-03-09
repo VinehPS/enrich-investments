@@ -41,15 +41,15 @@
               </div>
               <div class="flex gap-2">
                 <button
-                  @click="showUpdateKey = true"
                   class="text-xs bg-white/5 border border-brand-border text-gray-300 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
+                  @click="showUpdateKey = true"
                 >
                   Atualizar
                 </button>
                 <button
-                  @click="removeApiKey"
                   :disabled="removingKey"
                   class="text-xs bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1.5 rounded-lg hover:bg-red-500/20 transition-colors"
+                  @click="removeApiKey"
                 >
                   {{ removingKey ? 'Removendo...' : 'Remover' }}
                 </button>
@@ -76,15 +76,15 @@
                 <div class="flex gap-3">
                   <button
                     v-if="showUpdateKey"
-                    @click="showUpdateKey = false"
                     class="border border-brand-border text-gray-300 font-medium px-6 py-2.5 rounded-xl hover:bg-white/5 transition-colors"
+                    @click="showUpdateKey = false"
                   >
                     Cancelar
                   </button>
                   <button
-                    @click="saveKey"
                     :disabled="!newApiKey.trim() || savingKey"
                     class="bg-gradient-to-r from-brand to-brand-dark text-brand-bg font-bold px-6 py-2.5 rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    @click="saveKey"
                   >
                     {{ savingKey ? 'Salvando...' : 'Salvar Chave' }}
                   </button>

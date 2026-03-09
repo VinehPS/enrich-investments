@@ -1,6 +1,7 @@
 from cryptography.fernet import Fernet
-from typing import Optional
+
 from src.core.config import settings
+
 
 def get_fernet_key() -> str:
     """Gets the secret key or generates a new one if not available yet."""
@@ -11,6 +12,7 @@ def get_fernet_key() -> str:
         return key.decode()
     return settings.SECRET_KEY
 
+
 def encrypt_data(data: str) -> str:
     if not data:
         return ""
@@ -18,7 +20,8 @@ def encrypt_data(data: str) -> str:
     encrypted = f.encrypt(data.encode())
     return encrypted.decode()
 
-def decrypt_data(encrypted_data: str) -> Optional[str]:
+
+def decrypt_data(encrypted_data: str) -> str | None:
     if not encrypted_data:
         return None
     try:

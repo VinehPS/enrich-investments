@@ -23,6 +23,7 @@ class Settings(BaseSettings):
 
     # Gemini (Optional for backend directly, but can be in .env)
     GEMINI_API_KEY: str | None = None
+    GEMINI_MODEL: str = "gemini-1.5-flash"
 
     class Config:
         env_file = ".env"

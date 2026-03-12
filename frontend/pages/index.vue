@@ -341,7 +341,7 @@ const handleGoogleLogin = async () => {
   if (import.meta.client) {
     try {
       // @ts-expect-error - google is loaded via script
-      const google = (window as { google?: any }).google
+      const google = (window as unknown as { google: unknown }).google as { accounts: { id: { initialize: (config: unknown) => void; prompt: () => void } } }
       if (!google) {
         // Fallback: load the script
         alert('O serviço do Google está carregando. Tente novamente em instantes.')
@@ -407,8 +407,8 @@ const submitApiKey = async () => {
     await authStore.saveApiKey(apiKey.value.trim())
     showApiKeyModal.value = false
     navigateTo('/dashboard')
-  } catch (error: any) {
-    apiKeyError.value = error.message || 'Falha ao salvar chave.'
+  } catch (error: unknown) {
+    apiKeyError.value = (error as Error).message || 'Falha ao salvar chave.'
   } finally {
     apiKeyLoading.value = false
   }

@@ -179,7 +179,7 @@
 import { useAuthStore } from '~/stores/auth'
 import { useTickersStore } from '~/stores/tickers'
 import { useQuestionsStore } from '~/stores/questions'
-import { useHistoryStore } from '~/stores/history'
+import { useHistoryStore, type ProcessingResult } from '~/stores/history'
 
 definePageMeta({
   middleware: 'auth'

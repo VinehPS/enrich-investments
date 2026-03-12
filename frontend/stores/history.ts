@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
+import { useApi } from '~/composables/useApi'
 
-interface ProcessingResult {
+export interface ProcessingResult {
   id: string
   ticker: string
   type: string

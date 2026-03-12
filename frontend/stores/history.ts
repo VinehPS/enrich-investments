@@ -64,7 +64,7 @@ export const useHistoryStore = defineStore('history', {
 
     async analyzeAsset(ticker: string, type: string, questions?: { text: string }[]) {
       const api = useApi()
-      const body: any = { ticker, type }
+      const body: Record<string, unknown> = { ticker, type }
       if (questions && questions.length > 0) {
         body.questions = questions
       }

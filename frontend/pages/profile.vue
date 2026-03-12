@@ -130,8 +130,8 @@ const saveKey = async () => {
     newApiKey.value = ''
     showUpdateKey.value = false
     showMessage('API Key salva com sucesso!', 'success')
-  } catch (error: any) {
-    showMessage(error.message || 'Falha ao salvar a chave.', 'error')
+  } catch (error: unknown) {
+    showMessage((error as Error).message || 'Falha ao salvar a chave.', 'error')
   } finally {
     savingKey.value = false
   }
@@ -142,8 +142,8 @@ const removeApiKey = async () => {
   try {
     await authStore.deleteApiKey()
     showMessage('API Key removida com sucesso.', 'success')
-  } catch (error: any) {
-    showMessage(error.message || 'Falha ao remover a chave.', 'error')
+  } catch (error: unknown) {
+    showMessage((error as Error).message || 'Falha ao remover a chave.', 'error')
   } finally {
     removingKey.value = false
   }

@@ -42,7 +42,7 @@ export const useAuthStore = defineStore('auth', {
         }
 
         return data
-      } catch (error: any) {
+      } catch (error: unknown) {
         this.clearAuth()
         throw error
       }
@@ -140,9 +140,9 @@ function useApi() {
     return null
   }
 
-  const request = async <T = any>(
+  const request = async <T = unknown>(
     endpoint: string,
-    options: { method?: string; body?: any; params?: Record<string, string> } = {}
+    options: { method?: string; body?: unknown; params?: Record<string, string> } = {}
   ): Promise<T> => {
     const { method = 'GET', body, params } = options
     const headers: Record<string, string> = { 'Content-Type': 'application/json' }
@@ -172,10 +172,10 @@ function useApi() {
   }
 
   return {
-    get: <T = any>(endpoint: string, params?: Record<string, string>) => request<T>(endpoint, { method: 'GET', params }),
-    post: <T = any>(endpoint: string, body?: any) => request<T>(endpoint, { method: 'POST', body }),
-    patch: <T = any>(endpoint: string, body?: any) => request<T>(endpoint, { method: 'PATCH', body }),
-    put: <T = any>(endpoint: string, body?: any) => request<T>(endpoint, { method: 'PUT', body }),
-    del: <T = any>(endpoint: string) => request<T>(endpoint, { method: 'DELETE' })
+    get: <T = unknown>(endpoint: string, params?: Record<string, string>) => request<T>(endpoint, { method: 'GET', params }),
+    post: <T = unknown>(endpoint: string, body?: unknown) => request<T>(endpoint, { method: 'POST', body }),
+    patch: <T = unknown>(endpoint: string, body?: unknown) => request<T>(endpoint, { method: 'PATCH', body }),
+    put: <T = unknown>(endpoint: string, body?: unknown) => request<T>(endpoint, { method: 'PUT', body }),
+    del: <T = unknown>(endpoint: string) => request<T>(endpoint, { method: 'DELETE' })
   }
 }

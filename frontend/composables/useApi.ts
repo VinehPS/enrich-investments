@@ -12,11 +12,11 @@ export const useApi = () => {
     return null
   }
 
-  const request = async <T = any>(
+  const request = async <T = unknown>(
     endpoint: string,
     options: {
       method?: string
-      body?: any
+      body?: unknown
       params?: Record<string, string>
       auth?: boolean
     } = {}
@@ -62,19 +62,19 @@ export const useApi = () => {
   }
 
   return {
-    get: <T = any>(endpoint: string, params?: Record<string, string>) =>
+    get: <T = unknown>(endpoint: string, params?: Record<string, string>) =>
       request<T>(endpoint, { method: 'GET', params }),
 
-    post: <T = any>(endpoint: string, body?: any) =>
+    post: <T = unknown>(endpoint: string, body?: unknown) =>
       request<T>(endpoint, { method: 'POST', body }),
 
-    patch: <T = any>(endpoint: string, body?: any) =>
+    patch: <T = unknown>(endpoint: string, body?: unknown) =>
       request<T>(endpoint, { method: 'PATCH', body }),
 
-    put: <T = any>(endpoint: string, body?: any) =>
+    put: <T = unknown>(endpoint: string, body?: unknown) =>
       request<T>(endpoint, { method: 'PUT', body }),
 
-    del: <T = any>(endpoint: string) =>
+    del: <T = unknown>(endpoint: string) =>
       request<T>(endpoint, { method: 'DELETE' })
   }
 }

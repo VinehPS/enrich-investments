@@ -40,4 +40,4 @@ jobs:
         GOOGLE_CLIENT_ID: test_client
         GOOGLE_CLIENT_SECRET: test_secret
       run: |
-        pytest tests/ -v
+        PYTHONPATH=. pytest tests/ -v

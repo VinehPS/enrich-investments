@@ -340,8 +340,8 @@ const handleGoogleLogin = async () => {
   // This requires the Google Identity Services library.
   if (import.meta.client) {
     try {
-      // @ts-ignore - google is loaded via script
-      const google = (window as any).google
+      // @ts-expect-error - google is loaded via script
+      const google = (window as { google?: any }).google
       if (!google) {
         // Fallback: load the script
         alert('O serviço do Google está carregando. Tente novamente em instantes.')
@@ -358,7 +358,7 @@ const handleGoogleLogin = async () => {
   }
 }
 
-const handleCredentialResponse = async (response: any) => {
+const handleCredentialResponse = async (response: { credential: string }) => {
   try {
     const data = await authStore.loginWithGoogle(response.credential)
 
@@ -370,9 +370,9 @@ const handleCredentialResponse = async (response: any) => {
     } else {
       navigateTo('/dashboard')
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Login failed:', error)
-    alert('Falha no login: ' + (error.message || 'Erro desconhecido'))
+    alert('Falha no login: ' + ((error as Error).message || 'Erro desconhecido'))
   }
 }
 
@@ -391,8 +391,8 @@ const submitNickname = async () => {
     } else {
       navigateTo('/dashboard')
     }
-  } catch (error: any) {
-    nicknameError.value = error.message || 'Falha ao validar nickname. Tente outro.'
+  } catch (error: unknown) {
+    nicknameError.value = (error as Error).message || 'Falha ao validar nickname. Tente outro.'
   } finally {
     nicknameLoading.value = false
   }

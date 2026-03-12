@@ -200,7 +200,7 @@ const questionMode = ref<'default' | 'custom'>('default')
 const selectedCustomQuestions = ref<string[]>([])
 const processing = ref(false)
 const processError = ref('')
-const latestResult = ref<any>(null)
+const latestResult = ref<ProcessingResult | null>(null)
 const dropdownRef = ref<HTMLElement | null>(null)
 
 // Load data on mount
@@ -275,8 +275,8 @@ const startProcessing = async () => {
       questions
     )
     latestResult.value = result
-  } catch (error: any) {
-    processError.value = error.message || 'Falha no processamento.'
+  } catch (error: unknown) {
+    processError.value = (error as Error).message || 'Falha no processamento.'
   } finally {
     processing.value = false
   }

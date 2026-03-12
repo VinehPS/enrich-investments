@@ -168,8 +168,8 @@ const addQuestion = async () => {
   try {
     await questionsStore.createQuestion(newQuestionText.value.trim(), newQuestionType.value)
     newQuestionText.value = ''
-  } catch (error: any) {
-    alert(error.message || 'Falha ao criar pergunta.')
+  } catch (error: unknown) {
+    alert((error as Error).message || 'Falha ao criar pergunta.')
   } finally {
     addingQuestion.value = false
   }
@@ -190,8 +190,8 @@ const saveEdit = async () => {
   try {
     await questionsStore.updateQuestion(editingId.value, editText.value.trim())
     cancelEdit()
-  } catch (error: any) {
-    alert(error.message || 'Falha ao atualizar pergunta.')
+  } catch (error: unknown) {
+    alert((error as Error).message || 'Falha ao atualizar pergunta.')
   }
 }
 
@@ -199,8 +199,8 @@ const deleteQuestion = async (id: string) => {
   if (!confirm('Tem certeza que deseja excluir esta pergunta?')) return
   try {
     await questionsStore.deleteQuestion(id)
-  } catch (error: any) {
-    alert(error.message || 'Falha ao excluir pergunta.')
+  } catch (error: unknown) {
+    alert((error as Error).message || 'Falha ao excluir pergunta.')
   }
 }
 </script>

@@ -340,7 +340,6 @@ const handleGoogleLogin = async () => {
   // This requires the Google Identity Services library.
   if (import.meta.client) {
     try {
-      // @ts-expect-error - google is loaded via script
       const google = (window as unknown as { google: unknown }).google as { accounts: { id: { initialize: (config: unknown) => void; prompt: () => void } } }
       if (!google) {
         // Fallback: load the script

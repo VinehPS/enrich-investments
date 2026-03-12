@@ -1,17 +1,24 @@
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import { defineConfig as defineVitestConfig, mergeConfig } from 'vitest/config'
 
-export default defineConfig({
+const viteConfig = defineConfig({
   plugins: [vue()],
-  test: {
-    globals: true,
-    environment: 'jsdom'
-  },
   resolve: {
     alias: {
-      '~': resolve(__dirname, '.'),
+      '~/': resolve(__dirname, './'),
       '#imports': resolve(__dirname, '.nuxt/imports.d.ts')
     }
   }
 })
+
+export default mergeConfig(
+  viteConfig,
+  defineVitestConfig({
+    test: {
+      globals: true,
+      environment: 'jsdom'
+    }
+  })
+)

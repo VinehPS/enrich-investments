@@ -17,7 +17,12 @@ describe('Auth Store', () => {
   })
 
   it('should clear auth state correctly', () => {
-    const state = {
+    const state: {
+      accessToken: string | null
+      user: { email: string; name: string; picture: string | null; has_gemini_key: boolean } | null
+      isAuthenticated: boolean
+      loading: boolean
+    } = {
       accessToken: 'some-token',
       user: { email: 'test@test.com', name: 'Test', picture: null, has_gemini_key: false },
       isAuthenticated: true,

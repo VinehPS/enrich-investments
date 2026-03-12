@@ -294,7 +294,8 @@ useHead({
     { name: 'keywords', content: 'investimentos, ações, fundos imobiliários, FIIs, diagrama do cerrado, análise fundamentalista, inteligência artificial, Gemini, B3, bolsa de valores' },
     { property: 'og:title', content: 'Enrich Investments — Análise de Ações e FIIs com IA' },
     { property: 'og:description', content: 'Preencha automaticamente seu Diagrama do Cerrado e Diagrama de FIIs com Inteligência Artificial.' },
-    { property: 'og:type', content: 'website' }
+    { property: 'og:type', content: 'website' },
+    { name: 'referrer', content: 'no-referrer-when-downgrade' }
   ]
 })
 

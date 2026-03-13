@@ -43,9 +43,12 @@ jobs:
       - name: Generate static site
         run: npm run generate
         env:
+          # Build-time public runtime config for Nuxt (static output).
+          # Prefer GitHub Actions Variables, but keep safe defaults for Pages in a repo subpath.
           NUXT_PUBLIC_API_BASE_URL: ${{ vars.API_BASE_URL }}
           NUXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ vars.GOOGLE_CLIENT_ID }}
-          NUXT_APP_BASE_URL: ${{ vars.BASE_URL || '/' }}
+          # When deployed to https://user.github.io/<repo>/, Nuxt must use "/<repo>/" as baseURL.
+          NUXT_APP_BASE_URL: ${{ vars.BASE_URL || format('/{0}/', github.event.repository.name) }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

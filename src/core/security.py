@@ -27,10 +27,17 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 async def verify_google_token(token: str):
     """Verifies the Google OAuth2 JWT Token natively"""
     try:
-        idinfo = id_token.verify_oauth2_token(token, google_requests.Request(), settings.GOOGLE_CLIENT_ID)
+        idinfo = id_token.verify_oauth2_token(
+            token, 
+            google_requests.Request(), 
+            settings.GOOGLE_CLIENT_ID,
+            clock_skew_in_seconds=10
+        )
         return idinfo
-    except ValueError:
-        # Invalid token
+    except Exception as e:
+        # Log the specific error for debugging
+        print(f"DEBUG: Google Token Verification Error: {str(e)}")
+        print(f"DEBUG: Using Client ID: {settings.GOOGLE_CLIENT_ID}")
         return None
 
 

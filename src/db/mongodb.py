@@ -1,3 +1,5 @@
+import certifi
+
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from src.core.config import settings
@@ -15,7 +17,10 @@ async def get_database():
 
 
 async def connect_to_mongo():
-    db.client = AsyncIOMotorClient(settings.MONGODB_URL)
+    db.client = AsyncIOMotorClient(
+        settings.MONGODB_URL,
+        tlsCAFile=certifi.where()
+    )
     # Ping the database to confirm connection
     try:
         await db.client.admin.command("ping")

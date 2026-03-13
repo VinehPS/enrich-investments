@@ -40,10 +40,23 @@
                 <span class="text-xs text-gray-500">{{ newQuestionText.length }}/500</span>
                 <button
                   :disabled="!newQuestionText.trim() || !newQuestionType || addingQuestion"
-                  class="bg-gradient-to-r from-brand to-brand-dark text-brand-bg font-bold px-6 py-2.5 rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  class="bg-gradient-to-r from-brand to-brand-dark text-brand-bg font-bold px-6 py-2.5 rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                   @click="addQuestion"
                 >
-                  {{ addingQuestion ? 'Adicionando...' : 'Adicionar' }}
+                  <template v-if="addingQuestion">
+                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                      <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    <span>Adicionando...</span>
+                  </template>
+                  <template v-else>
+                    <span>Adicionar</span>
+                  </template>
                 </button>
               </div>
             </div>
@@ -106,8 +119,26 @@
                 <button class="text-gray-500 hover:text-brand-light p-1.5 rounded-lg hover:bg-white/5 transition-colors" @click="startEdit(q)">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                 </button>
-                <button class="text-gray-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-white/5 transition-colors" @click="deleteQuestion(q.id)">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                <button
+                  class="text-gray-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-white/5 transition-colors flex items-center justify-center"
+                  :disabled="deletingId === q.id"
+                  @click="deleteQuestion(q.id)"
+                >
+                  <template v-if="deletingId === q.id">
+                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                      <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                  </template>
+                  <template v-else>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </template>
                 </button>
               </div>
             </div>
@@ -123,11 +154,24 @@
               <div class="flex justify-end gap-2">
                 <button class="text-sm text-gray-400 px-4 py-1.5 rounded-lg hover:bg-white/5 transition-colors" @click="cancelEdit">Cancelar</button>
                 <button
-                  :disabled="!editText.trim()"
-                  class="text-sm bg-brand text-brand-bg font-semibold px-4 py-1.5 rounded-lg hover:brightness-110 transition-all disabled:opacity-50"
+                  :disabled="!editText.trim() || editingLoading"
+                  class="text-sm bg-brand text-brand-bg font-semibold px-4 py-1.5 rounded-lg hover:brightness-110 transition-all disabled:opacity-50 flex items-center gap-2"
                   @click="saveEdit"
                 >
-                  Salvar
+                  <template v-if="editingLoading">
+                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                      <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    <span>Salvando...</span>
+                  </template>
+                  <template v-else>
+                    <span>Salvar</span>
+                  </template>
                 </button>
               </div>
             </div>
@@ -140,11 +184,13 @@
 
 <script setup lang="ts">
 import { useQuestionsStore } from '~/stores/questions'
+import { useModalStore } from '~/stores/modal'
 
 definePageMeta({ middleware: 'auth' })
 useHead({ title: 'Minhas Perguntas — Enrich Investments' })
 
 const questionsStore = useQuestionsStore()
+const modalStore = useModalStore()
 
 const newQuestionText = ref('')
 const newQuestionType = ref('stocks')
@@ -153,6 +199,8 @@ const filterType = ref('')
 
 const editingId = ref<string | null>(null)
 const editText = ref('')
+const editingLoading = ref(false)
+const deletingId = ref<string | null>(null)
 
 onMounted(() => {
   questionsStore.fetchUserQuestions()
@@ -169,7 +217,7 @@ const addQuestion = async () => {
     await questionsStore.createQuestion(newQuestionText.value.trim(), newQuestionType.value)
     newQuestionText.value = ''
   } catch (error: unknown) {
-    alert((error as Error).message || 'Falha ao criar pergunta.')
+    await modalStore.showAlert((error as Error).message || 'Falha ao criar pergunta.', 'error')
   } finally {
     addingQuestion.value = false
   }
@@ -187,20 +235,27 @@ const cancelEdit = () => {
 
 const saveEdit = async () => {
   if (!editingId.value) return
+  editingLoading.value = true
   try {
     await questionsStore.updateQuestion(editingId.value, editText.value.trim())
     cancelEdit()
   } catch (error: unknown) {
-    alert((error as Error).message || 'Falha ao atualizar pergunta.')
+    await modalStore.showAlert((error as Error).message || 'Falha ao atualizar pergunta.', 'error')
+  } finally {
+    editingLoading.value = false
   }
 }
 
 const deleteQuestion = async (id: string) => {
-  if (!confirm('Tem certeza que deseja excluir esta pergunta?')) return
+  const confirmed = await modalStore.showConfirm('Tem certeza que deseja excluir esta pergunta?', 'warning')
+  if (!confirmed) return
+  deletingId.value = id
   try {
     await questionsStore.deleteQuestion(id)
   } catch (error: unknown) {
-    alert((error as Error).message || 'Falha ao excluir pergunta.')
+    await modalStore.showAlert((error as Error).message || 'Falha ao excluir pergunta.', 'error')
+  } finally {
+    deletingId.value = null
   }
 }
 </script>

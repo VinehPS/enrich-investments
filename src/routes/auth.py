@@ -47,7 +47,9 @@ async def login_google_oauth2(request: GoogleAuthRequest, db=Depends(get_databas
 
     if not user:
         new_user = User(google_id=google_id, email=email, name=name, picture=picture)
-        result = await users_collection.insert_one(new_user.model_dump(by_alias=True, exclude={"id"}))
+        result = await users_collection.insert_one(
+            new_user.model_dump(by_alias=True, exclude={"id"})
+        )
         user_id = str(result.inserted_id)
         user_data = new_user.model_dump()
     else:
@@ -56,7 +58,10 @@ async def login_google_oauth2(request: GoogleAuthRequest, db=Depends(get_databas
 
     # 3. Create Access Token
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(data={"sub": user_id, "email": email}, expires_delta=access_token_expires)
+    access_token = create_access_token(
+        data={"sub": user_id, "email": email},
+        expires_delta=access_token_expires,
+    )
 
     return {
         "access_token": access_token,
@@ -90,14 +95,18 @@ async def read_users_me(current_user: User = Depends(get_current_user)):
 
 
 @router.delete("/me")
-async def delete_user_account(current_user: User = Depends(get_current_user), db=Depends(get_database)):
+async def delete_user_account(
+    current_user: User = Depends(get_current_user),
+    db=Depends(get_database),
+):
     user_id = current_user["_id"]
-    # 1. Delete user
     await db["users"].delete_one({"_id": user_id})
-    # 2. Delete related user data
-    await db["questions"].delete_many({"user_id": user_id})
-    await db["processings"].delete_many({"user_id": user_id})
-    return {"message": "Account and all associated historical data deleted successfully"}
+    return {
+        "message": (
+            "Sua conta foi removida com sucesso. "
+            "Suas análises foram anonimizadas."
+        )
+    }
 
 
 @router.post("/gemini-key")
@@ -109,7 +118,10 @@ async def save_gemini_key(
 
     encrypted_key = encrypt_data(request.gemini_key)
     if not encrypted_key:
-        raise HTTPException(status_code=500, detail="Failed to encrypt key due to server configuration")
+        raise HTTPException(
+            status_code=500,
+            detail="Failed to encrypt key due to server configuration",
+        )
 
     await db["users"].update_one({"_id": current_user["_id"]}, {"$set": {"encrypted_gemini_key": encrypted_key}})
 

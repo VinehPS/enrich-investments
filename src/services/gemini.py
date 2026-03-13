@@ -20,20 +20,67 @@ class AssetAnalysisResult(BaseModel):
     answers: list[AnswerResult] = Field(description="The list of answers and justifications")
 
 
-class GeminiService:
-    def __init__(self, encrypted_api_key: str):
-        self.api_key = decrypt_data(encrypted_api_key)
-        if not self.api_key:
-            raise ValueError("Invalid or corrupted API Key")
+class NicknameValidationResult(BaseModel):
+    is_valid: bool = Field(description="True se o nickname for apropriado, False caso contrário")
+    reason: str | None = Field(description="Motivo da rejeição em português, se houver")
 
-        # Optional fallback to env var for testing, but prefers user's key
-        if self.api_key == "test" and os.getenv("GEMINI_API_KEY"):
+
+class GeminiService:
+    def __init__(self, encrypted_api_key: str | None = None):
+        self.api_key: str | None = None
+        if encrypted_api_key:
+            self.api_key = decrypt_data(encrypted_api_key)
+        
+        # Fallback to env var if no key provided or decryption failed
+        if not self.api_key:
             self.api_key = os.getenv("GEMINI_API_KEY")
 
+        if not self.api_key:
+            raise ValueError("Nenhuma API Key do Gemini configurada no sistema ou no usuário.")
+
         self.client = genai.Client(api_key=self.api_key)
-        self.model_name = "gemini-2.5-flash"
+        self.model_name = "gemini-2.0-flash"
+
+    async def validate_nickname(self, nickname: str) -> dict:
+        """Valida se um nickname é apropriado usando IA."""
+        system_instruction = """Você é um moderador de conteúdo especializado em comunidades de investimento.
+Sua missão é avaliar se um nickname escolhido por um usuário é apropriado para uma plataforma pública e respeitosa.
+REGRAS DE REJEIÇÃO:
+1. Conteúdo racista, homofóbico, sexista ou discriminatório.
+2. Palavrões pesados ou termos agressivos.
+3. Incitação ao ódio ou violência.
+4. Nomes que tentam burlar filtros (ex: usando hífens ou números para formar palavras proibidas).
+5. Nomes de figuras históricas infames (ex: ditadores).
+Nomes de memes financeiros, termos de bolsa (ex: 'BuyAndHold', 'FII_Lover') ou nicknames criativos normais são PERMITIDOS.
+Você deve responder estritamente no formato JSON definido."""
+
+        prompt = f"Avalie o seguinte nickname para uso na plataforma: '{nickname}'"
+
+        try:
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=system_instruction,
+                    response_mime_type="application/json",
+                    response_schema=NicknameValidationResult,
+                    temperature=0.0,
+                ),
+            )
+            
+            if hasattr(response, "parsed") and response.parsed:
+                return response.parsed.model_dump()
+            
+            import json
+            return json.loads(response.text)
+        except Exception as e:
+            # Fallback em caso de erro na API: permitir para não travar o usuário, 
+            # assumindo que o regex básico no router ainda vai rodar.
+            print(f"ERRO NA VALIDAÇÃO DE NICKNAME COM IA: {str(e)}")
+            return {"is_valid": True, "reason": None}
 
     async def analyze(self, ticker: str, asset_type: str, questions: list[dict]) -> dict:
+        # ... (rest of the file remains similar, but using self.model_name)
         questions_formatted = ""
         for i, q in enumerate(questions, 1):
             quest = q.get("text", "")

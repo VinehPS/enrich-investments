@@ -18,13 +18,28 @@
           />
           <div class="flex gap-2">
             <button
+              :disabled="historyStore.globalLoading"
               :class="filterType === '' ? 'bg-brand/20 text-brand-light border-brand/40' : 'bg-white/5 text-gray-400 border-brand-border'"
-              class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors"
+              class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               @click="filterType = ''; loadGlobalHistory()"
             >
-              Todos
+              <template v-if="historyStore.globalLoading">
+                <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+                <span>Atualizando...</span>
+              </template>
+              <template v-else>
+                <span>Todos</span>
+              </template>
             </button>
             <button
+              :disabled="historyStore.globalLoading"
               :class="filterType === 'stocks' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors"
               @click="filterType = 'stocks'; loadGlobalHistory()"
@@ -32,6 +47,7 @@
               Ações
             </button>
             <button
+              :disabled="historyStore.globalLoading"
               :class="filterType === 'real_estate_funds' ? 'bg-purple-500/20 text-purple-400 border-purple-500/40' : 'bg-white/5 text-gray-400 border-brand-border'"
               class="border px-4 py-2 rounded-xl text-sm font-medium transition-colors"
               @click="filterType = 'real_estate_funds'; loadGlobalHistory()"
@@ -41,7 +57,8 @@
           </div>
           <select
             v-model="sortOrder"
-            class="bg-white/5 border border-brand-border rounded-xl px-4 py-2 text-white focus:border-brand outline-none text-sm appearance-none"
+            :disabled="historyStore.globalLoading"
+            class="bg-white/5 border border-brand-border rounded-xl px-4 py-2 text-white focus:border-brand outline-none text-sm appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
             @change="loadGlobalHistory"
           >
             <option value="newest">Mais recentes</option>

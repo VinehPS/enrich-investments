@@ -24,10 +24,24 @@
             <option value="real_estate_funds">Fundos</option>
           </select>
           <button
-            class="bg-brand/20 text-brand-light font-medium px-4 py-2 rounded-xl hover:bg-brand/30 transition-colors text-sm"
+            :disabled="historyStore.loading"
+            class="bg-brand/20 text-brand-light font-medium px-4 py-2 rounded-xl hover:bg-brand/30 transition-colors text-sm flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             @click="loadHistory"
           >
-            Filtrar
+            <template v-if="historyStore.loading">
+              <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                />
+              </svg>
+              <span>Filtrando...</span>
+            </template>
+            <template v-else>
+              <span>Filtrar</span>
+            </template>
           </button>
         </div>
 

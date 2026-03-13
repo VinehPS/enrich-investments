@@ -98,6 +98,27 @@
         <div v-if="message" :class="messageType === 'success' ? 'bg-green-500/10 border-green-500/30 text-green-300' : 'bg-red-500/10 border-red-500/30 text-red-300'" class="border rounded-xl p-4 text-sm">
           {{ message }}
         </div>
+
+        <!-- Danger Zone -->
+        <div class="bg-brand-surface/50 border border-red-500/20 rounded-2xl p-6 lg:p-8">
+          <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4c-.77-1.33-2.69-1.33-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"/></svg>
+            Zona de Perigo
+          </h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Ao remover sua conta, seus dados de usuário e sua chave de API serão excluídos.
+            <strong class="text-gray-300">Seu histórico de análises continuará disponível de forma anônima</strong>
+            para a comunidade.
+          </p>
+
+          <button
+            :disabled="deletingAccount"
+            class="bg-red-500/10 border border-red-500/30 text-red-300 font-semibold px-5 py-2.5 rounded-xl hover:bg-red-500/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            @click="removeAccount"
+          >
+            {{ deletingAccount ? 'Removendo...' : 'Remover minha conta' }}
+          </button>
+        </div>
       </div>
     </NuxtLayout>
   </div>
@@ -105,15 +126,18 @@
 
 <script setup lang="ts">
 import { useAuthStore } from '~/stores/auth'
+import { useModalStore } from '~/stores/modal'
 
 definePageMeta({ middleware: 'auth' })
 useHead({ title: 'Meu Perfil — Enrich Investments' })
 
 const authStore = useAuthStore()
+const modalStore = useModalStore()
 const newApiKey = ref('')
 const showUpdateKey = ref(false)
 const savingKey = ref(false)
 const removingKey = ref(false)
+const deletingAccount = ref(false)
 const message = ref('')
 const messageType = ref<'success' | 'error'>('success')
 
@@ -146,6 +170,26 @@ const removeApiKey = async () => {
     showMessage((error as Error).message || 'Falha ao remover a chave.', 'error')
   } finally {
     removingKey.value = false
+  }
+}
+
+const removeAccount = async () => {
+  if (import.meta.server) return
+
+  const confirmed = await modalStore.showConfirm(
+    'Tem certeza que deseja remover sua conta? Sua conta e sua chave de API serão excluídas. Suas análises permanecerão no histórico global de forma anônima.',
+    'warning'
+  )
+  if (!confirmed) return
+
+  deletingAccount.value = true
+  try {
+    await authStore.deleteAccount()
+    await navigateTo('/')
+  } catch (error: unknown) {
+    showMessage((error as Error).message || 'Falha ao remover sua conta.', 'error')
+  } finally {
+    deletingAccount.value = false
   }
 }
 </script>

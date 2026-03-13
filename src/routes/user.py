@@ -31,30 +31,45 @@ def is_offensive(text: str) -> bool:
     return False
 
 
+from src.services.gemini import GeminiService
+
+
 @router.post("/nickname")
 async def set_nickname(
     request: NicknameRequest, current_user: User = Depends(get_current_user), db=Depends(get_database)
 ):
     nickname = request.nickname.strip()
 
-    # Validate length
+    # 1. Basic format validation (length, characters)
     if len(nickname) < 1 or len(nickname) > 25:
         raise HTTPException(status_code=400, detail="O nickname deve ter entre 1 e 25 caracteres.")
 
-    # Validate characters (alphanumeric, underscores, hyphens)
     if not re.match(r"^[a-zA-Z0-9_\-]+$", nickname):
         raise HTTPException(
             status_code=400, detail="O nickname deve conter apenas letras, números, underscores e hífens."
         )
 
-    # Check offensive content
-    if is_offensive(nickname):
-        raise HTTPException(
-            status_code=400,
-            detail="Este nickname contém termos ofensivos, agressivos ou discriminatórios e não é permitido.",
-        )
+    # 2. AI Moderation (Gemini)
+    try:
+        # Use user's key if available, otherwise GeminiService falls back to system key in .env
+        gemini = GeminiService(current_user.get("encrypted_gemini_key"))
+        validation = await gemini.validate_nickname(nickname)
+        
+        if not validation.get("is_valid"):
+            reason = validation.get("reason") or "Nickname inapropriado."
+            raise HTTPException(status_code=400, detail=f"IA: {reason}")
+    except ValueError as e:
+        # Fallback to current regex if Gemini is not configured, but log it
+        print(f"AVISO: Pulando validação por IA devido a erro de configuração: {str(e)}")
+        if is_offensive(nickname):
+            raise HTTPException(
+                status_code=400,
+                detail="Este nickname contém termos offensivos e não é permitido.",
+            )
+    except Exception as e:
+        print(f"ERRO NA VALIDAÇÃO POR IA: {str(e)}")
 
-    # Check uniqueness (case-insensitive)
+    # 3. Check uniqueness (case-insensitive)
     existing = await db["users"].find_one({"nickname": {"$regex": f"^{re.escape(nickname)}$", "$options": "i"}})
     if existing and str(existing["_id"]) != str(current_user["_id"]):
         raise HTTPException(status_code=409, detail="Este nickname já está em uso. Escolha outro.")

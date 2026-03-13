@@ -3,6 +3,7 @@ import re
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from src.core.config import settings
 from src.core.security import get_current_user
 from src.db.mongodb import get_database
 from src.models.schemas import User
@@ -44,15 +45,10 @@ async def set_nickname(
     if len(nickname) < 1 or len(nickname) > 25:
         raise HTTPException(status_code=400, detail="O nickname deve ter entre 1 e 25 caracteres.")
 
-    if not re.match(r"^[a-zA-Z0-9_\-]+$", nickname):
-        raise HTTPException(
-            status_code=400, detail="O nickname deve conter apenas letras, números, underscores e hífens."
-        )
-
     # 2. AI Moderation (Gemini)
     try:
         # Use user's key if available, otherwise GeminiService falls back to system key in .env
-        gemini = GeminiService(current_user.get("encrypted_gemini_key"))
+        gemini = GeminiService(settings.GEMINI_API_KEY)
         validation = await gemini.validate_nickname(nickname)
         
         if not validation.get("is_valid"):

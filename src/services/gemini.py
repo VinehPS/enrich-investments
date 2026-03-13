@@ -43,16 +43,16 @@ class GeminiService:
 
     async def validate_nickname(self, nickname: str) -> dict:
         """Valida se um nickname é apropriado usando IA."""
-        system_instruction = """Você é um moderador de conteúdo especializado em comunidades de investimento.
-Sua missão é avaliar se um nickname escolhido por um usuário é apropriado para uma plataforma pública e respeitosa.
-REGRAS DE REJEIÇÃO:
-1. Conteúdo racista, homofóbico, sexista ou discriminatório.
-2. Palavrões pesados ou termos agressivos.
-3. Incitação ao ódio ou violência.
-4. Nomes que tentam burlar filtros (ex: usando hífens ou números para formar palavras proibidas).
-5. Nomes de figuras históricas infames (ex: ditadores).
-Nomes de memes financeiros, termos de bolsa (ex: 'BuyAndHold', 'FII_Lover') ou nicknames criativos normais são PERMITIDOS.
-Você deve responder estritamente no formato JSON definido."""
+        system_instruction = """Você é um moderador de conteúdo especializado em comunidades.
+            Sua missão é avaliar se um nickname escolhido por um usuário é apropriado para uma plataforma pública e respeitosa.
+            REGRAS DE REJEIÇÃO:
+            1. Conteúdo racista, homofóbico, sexista ou discriminatório.
+            2. Palavrões ou termos agressivos.
+            3. Incitação ao ódio ou violência.
+            4. Nomes que tentam burlar filtros (ex: usando hífens ou números para formar palavras proibidas).
+            5. Nomes de figuras históricas infames (ex: ditadores).
+            Nomes de memes financeiros, termos de bolsa (ex: 'BuyAndHold', 'FII_Lover') ou nicknames criativos normais são PERMITIDOS.
+            Você deve responder estritamente no formato JSON definido."""
 
         prompt = f"Avalie o seguinte nickname para uso na plataforma: '{nickname}'"
 
@@ -77,7 +77,7 @@ Você deve responder estritamente no formato JSON definido."""
             # Fallback em caso de erro na API: permitir para não travar o usuário, 
             # assumindo que o regex básico no router ainda vai rodar.
             print(f"ERRO NA VALIDAÇÃO DE NICKNAME COM IA: {str(e)}")
-            return {"is_valid": True, "reason": None}
+            return {"is_valid": False, "reason": None}
 
     async def analyze(self, ticker: str, asset_type: str, questions: list[dict]) -> dict:
         # ... (rest of the file remains similar, but using self.model_name)

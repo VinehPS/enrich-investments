@@ -37,6 +37,6 @@ async def test_analyze_unauthorized(async_client):
 @pytest.mark.asyncio
 async def test_cors_headers(async_client):
     headers = {"Origin": "https://vinehps.github.io"}
-    response = await async_client.options("/", headers=headers)
+    response = await async_client.get("/", headers=headers)
     assert response.status_code == 200
     assert response.headers.get("access-control-allow-origin") == "https://vinehps.github.io"
